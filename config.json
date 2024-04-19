@@ -1,0 +1,87 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "path",
+          "style": "diamond",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#ffffff",
+          "background": "#ff479c",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b0",
+          "template": " \ue5ff {{ .Path }} ",
+          "properties": {
+            "style": "folder"
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#193549",
+          "background": "#fffb38",
+          "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "properties": {
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          }
+        },
+        {
+          "type": "root",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#ffffff",
+          "background": "#ffff66",
+          "template": " \uf0e7 "
+        },
+        {
+          "type": "text",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#ffffff",
+          "background": "#2e9599",
+          "background_templates": [
+            "{{ if gt .Code 0 }}#f1184c{{ end }}"
+          ],
+          "trailing_diamond": "\ue0b4",
+          "template": " 🐶{{ if gt .Code 0 }}\uf00d{{ else }}\uf42e{{ end }} ",
+          "properties": {
+            "always_enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "kubectl",
+          "style": "diamond",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "\ue0b4",
+          "foreground": "#000000",
+          "background": "#ebcc34",
+          "template": " \udb84\udcfe {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} ",
+          "properties": {
+            "context_aliases": {
+              "arn:aws:eks:eu-west-1:1234567890:cluster/posh": "posh"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "#ffffff",
+    "template": "🖥️: "
+  }
+}
