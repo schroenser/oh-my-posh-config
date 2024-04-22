@@ -70,7 +70,7 @@
           "trailing_diamond": "",
           "foreground": "p:kubectl-foreground",
           "background": "p:kubectl-background",
-          "template": "󱃾{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}"
+          "template": "󱃾 {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}"
         }
       ]
     }
