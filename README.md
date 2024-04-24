@@ -21,6 +21,18 @@ zsh
 chsh -s $(which zsh)
 ```
 
+### Make sure .profile is loaded
+
+```Shell
+nano ~/.zprofile
+```
+
+and add
+
+```Shell
+emulate sh -c '. ~/.profile'
+```
+
 ### Make sure nvm and npm work
 
 ```Shell
